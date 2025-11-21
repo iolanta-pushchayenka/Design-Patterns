@@ -1,120 +1,118 @@
 import path from "path";
 
 describe("logger module", () => {
-  const ORIGINAL_ENV = process.env.NODE_ENV;
+    const ORIGINAL_ENV = process.env.NODE_ENV;
 
-  beforeEach(() => {
-    jest.resetModules();
-    jest.clearAllMocks();
-  });
+    beforeEach(() => {
+        jest.resetModules();
+        jest.clearAllMocks();
+    });
 
-  afterAll(() => {
-    process.env.NODE_ENV = ORIGINAL_ENV;
-  });
+    afterAll(() => {
+        process.env.NODE_ENV = ORIGINAL_ENV;
+    });
 
-  // ------------------- TEST 1 --------------------
-  test("создаёт тихий логгер при NODE_ENV=test", () => {
-    process.env.NODE_ENV = "test";
 
-    const mockPino = jest.fn(() => ({}));
+    test("создаёт тихий логгер при NODE_ENV=test", () => {
+        process.env.NODE_ENV = "test";
 
-    jest.mock("pino", () => mockPino);
-    jest.mock("fs", () => ({
-      existsSync: jest.fn(),
-      mkdirSync: jest.fn(),
-      writeFileSync: jest.fn()
-    }));
+        const mockPino = jest.fn(() => ({}));
 
-    const { logger } = require("../logger/logger");
+        jest.mock("pino", () => mockPino);
+        jest.mock("fs", () => ({
+            existsSync: jest.fn(),
+            mkdirSync: jest.fn(),
+            writeFileSync: jest.fn()
+        }));
 
-    expect(mockPino).toHaveBeenCalledWith({ level: "silent" });
-    expect(logger).toBeDefined();
-  });
+        const { logger } = require("../logger/logger");
 
-  // ------------------- TEST 2 --------------------
-  test("создаёт рабочий логгер при NODE_ENV!=test", () => {
-    process.env.NODE_ENV = "production";
+        expect(mockPino).toHaveBeenCalledWith({ level: "silent" });
+        expect(logger).toBeDefined();
+    });
 
-    const mockPino = jest.fn(() => ({}));
-    const existsMock = jest.fn()
-      .mockReturnValueOnce(false)  // dir
-      .mockReturnValueOnce(false); // file
+    test("создаёт рабочий логгер при NODE_ENV!=test", () => {
+        process.env.NODE_ENV = "production";
 
-    const mkdirMock = jest.fn();
-    const writeMock = jest.fn();
+        const mockPino = jest.fn(() => ({}));
+        const existsMock = jest.fn()
+            .mockReturnValueOnce(false)  // dir
+            .mockReturnValueOnce(false); // file
 
-    jest.mock("pino", () => mockPino);
-    jest.mock("fs", () => ({
-      existsSync: existsMock,
-      mkdirSync: mkdirMock,
-      writeFileSync: writeMock
-    }));
+        const mkdirMock = jest.fn();
+        const writeMock = jest.fn();
 
-    const { logger } = require("../logger/logger");
+        jest.mock("pino", () => mockPino);
+        jest.mock("fs", () => ({
+            existsSync: existsMock,
+            mkdirSync: mkdirMock,
+            writeFileSync: writeMock
+        }));
 
-    const logDir = path.resolve(__dirname, "../logger/logger");
-    const logPath = path.join(logDir, "errors.log");
+        const { logger } = require("../logger/logger");
 
-    expect(existsMock).toHaveBeenCalledWith(logDir);
-    expect(mkdirMock).toHaveBeenCalledWith(logDir, { recursive: true });
+        const logDir = path.resolve(__dirname, "../logger/logger");
+        const logPath = path.join(logDir, "errors.log");
 
-    expect(existsMock).toHaveBeenCalledWith(logPath);
-    expect(writeMock).toHaveBeenCalledWith(logPath, "");
+        expect(existsMock).toHaveBeenCalledWith(logDir);
+        expect(mkdirMock).toHaveBeenCalledWith(logDir, { recursive: true });
 
-    expect(mockPino).toHaveBeenCalled();
-    expect(logger).toBeDefined();
-  });
+        expect(existsMock).toHaveBeenCalledWith(logPath);
+        expect(writeMock).toHaveBeenCalledWith(logPath, "");
 
-  // ------------------- TEST 3 --------------------
-  test("если директория существует — не создаёт её", () => {
-    process.env.NODE_ENV = "production";
+        expect(mockPino).toHaveBeenCalled();
+        expect(logger).toBeDefined();
+    });
 
-    const mockPino = jest.fn(() => ({}));
+    test("если директория существует — не создаёт её", () => {
+        process.env.NODE_ENV = "production";
 
-    const existsMock = jest.fn()
-      .mockReturnValueOnce(true)  // dir exists
-      .mockReturnValueOnce(false); // file not exists
+        const mockPino = jest.fn(() => ({}));
 
-    const mkdirMock = jest.fn();
-    const writeMock = jest.fn();
+        const existsMock = jest.fn()
+            .mockReturnValueOnce(true)
+            .mockReturnValueOnce(false);
 
-    jest.mock("pino", () => mockPino);
-    jest.mock("fs", () => ({
-      existsSync: existsMock,
-      mkdirSync: mkdirMock,
-      writeFileSync: writeMock
-    }));
+        const mkdirMock = jest.fn();
+        const writeMock = jest.fn();
 
-    require("../logger/logger");
+        jest.mock("pino", () => mockPino);
+        jest.mock("fs", () => ({
+            existsSync: existsMock,
+            mkdirSync: mkdirMock,
+            writeFileSync: writeMock
+        }));
 
-    expect(mkdirMock).not.toHaveBeenCalled();
-    expect(writeMock).toHaveBeenCalled();
-  });
+        require("../logger/logger");
 
-  // ------------------- TEST 4 --------------------
-  test("если файл существует — не создаёт его", () => {
-    process.env.NODE_ENV = "production";
+        expect(mkdirMock).not.toHaveBeenCalled();
+        expect(writeMock).toHaveBeenCalled();
+    });
 
-    const mockPino = jest.fn(() => ({}));
 
-    const existsMock = jest.fn()
-      .mockReturnValueOnce(true) // dir exists
-      .mockReturnValueOnce(true); // file exists
+    test("если файл существует — не создаёт его", () => {
+        process.env.NODE_ENV = "production";
 
-    const mkdirMock = jest.fn();
-    const writeMock = jest.fn();
+        const mockPino = jest.fn(() => ({}));
 
-    jest.mock("pino", () => mockPino);
-    jest.mock("fs", () => ({
-      existsSync: existsMock,
-      mkdirSync: mkdirMock,
-      writeFileSync: writeMock
-    }));
+        const existsMock = jest.fn()
+            .mockReturnValueOnce(true)
+            .mockReturnValueOnce(true);
 
-    const { logger } = require("../logger/logger");
+        const mkdirMock = jest.fn();
+        const writeMock = jest.fn();
 
-    expect(mkdirMock).not.toHaveBeenCalled();
-    expect(writeMock).not.toHaveBeenCalled();
-    expect(logger).toBeDefined();
-  });
+        jest.mock("pino", () => mockPino);
+        jest.mock("fs", () => ({
+            existsSync: existsMock,
+            mkdirSync: mkdirMock,
+            writeFileSync: writeMock
+        }));
+
+        const { logger } = require("../logger/logger");
+
+        expect(mkdirMock).not.toHaveBeenCalled();
+        expect(writeMock).not.toHaveBeenCalled();
+        expect(logger).toBeDefined();
+    });
 });

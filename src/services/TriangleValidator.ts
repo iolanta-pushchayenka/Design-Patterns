@@ -1,74 +1,15 @@
-// import { Point } from "../entities/Point";
-
-// // Регулярное выражение: ровно 6 чисел
-// export const TRIANGLE_ROW_REGEX =
-//   /^-?\d+(\.\d+)?(\s+-?\d+(\.\d+)?){5}$/;
-
-// export class TriangleValidator {
-
-//   /**
-//    * Проверка, что строка имеет нужный формат: 6 чисел.
-//    */
-//   static validateRawString(row: string): boolean {
-//     return TRIANGLE_ROW_REGEX.test(row.trim());
-//   }
-
-//   /**
-//    * Проверка, что точки не повторяются.
-//    * Дубликаты → треугольник некорректен.
-//    */
-//   static noDuplicatePoints(points: Point[]): boolean {
-//     const set = new Set(points.map(p => `${p.x}_${p.y}_${p.z}`));
-//     return set.size === points.length;
-//   }
-
-//   /**
-//    * Проверка, что точки не коллинеарны.
-//    * Вычисляем площадь треугольника через определитель.
-//    * Если площадь == 0 → точки лежат на одной прямой.
-//    */
-//   static areNotCollinear(a: Point, b: Point, c: Point): boolean {
-//     const area = Math.abs(
-//       a.x * (b.y - c.y) +
-//       b.x * (c.y - a.y) +
-//       c.x * (a.y - b.y)
-//     ) / 2;
-
-//     return area > 0;
-//   }
-
-//   /**
-//    * Полная проверка 3 точек:
-//    * - нет дубликатов
-//    * - образуют невырожденный треугольник
-//    */
-//   static validatePoints(a: Point, b: Point, c: Point): boolean {
-//     return (
-//       this.noDuplicatePoints([a, b, c]) &&
-//       this.areNotCollinear(a, b, c)
-//     );
-//   }
-// }
-
-
-
 // src/validators/TriangleValidator.ts
 import { Point } from "../entities/Point";
 import { InvalidDataError } from "../exceptions/InvalidDataError";
 import { logger } from "../logger/logger";
 
-// Разрешены числа типа: -1, 2.5, 0.002
 export const TRIANGLE_ROW_PATTERN =
   /^-?\d+(?:\.\d+)?(?:\s+-?\d+(?:\.\d+)?)*$/;
 
-// Нужно ровно 6 чисел (3 точки)
 export const TRIANGLE_COORD_COUNT = 6;
 
 export class TriangleValidator {
-  /**
-   * Парсит строку данных и возвращает массив чисел.
-   * Дополняет недостающие числа единицами.
-   */
+
   parseRow(row: string): number[] {
     try {
       const clean = row.trim();
@@ -109,9 +50,7 @@ export class TriangleValidator {
     }
   }
 
-  /**
-   * Создаёт точки треугольника.
-   */
+  
   buildPoints(nums: number[]): Point[] {
     try {
       return [
@@ -125,9 +64,6 @@ export class TriangleValidator {
     }
   }
 
-  /**
-   * Проверяет корректность трёх точек треугольника.
-   */
   validatePoints(points: Point[]): void {
     if (points.length !== 3) {
       throw new InvalidDataError("Triangle: требуется ровно 3 точки");
@@ -137,9 +73,6 @@ export class TriangleValidator {
     this.ensureNotCollinear(points[0], points[1], points[2]);
   }
 
-  /**
-   * Проверяет отсутствие совпадающих точек.
-   */
   private ensureNoDuplicatePoints(points: Point[]): void {
     const unique = new Set(points.map(p => `${p.x}_${p.y}`));
 
@@ -148,10 +81,7 @@ export class TriangleValidator {
       throw new InvalidDataError("Triangle: две точки совпадают");
     }
   }
-
-  /**
-   * Проверяет, что точки не лежат на одной прямой.
-   */
+  
   private ensureNotCollinear(a: Point, b: Point, c: Point): void {
     const area =
       Math.abs(

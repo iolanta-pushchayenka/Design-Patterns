@@ -6,7 +6,6 @@ import { CalculationError } from "../exceptions/CalculationError";
 
 export class TriangleCalculator {
 
-  // === Вспомогательная функция: расстояние между двумя точками ===
   private static dist(p: Point, q: Point): number {
     try {
       if (!p || !q) {
@@ -21,7 +20,6 @@ export class TriangleCalculator {
     }
   }
 
-  // === Периметр треугольника ===
   static perimeter(t: Triangle): number {
     try {
       if (!t) {
@@ -41,7 +39,7 @@ export class TriangleCalculator {
     }
   }
 
-  // === Площадь треугольника ===
+  // Площадь треугольника 
   static area(t: Triangle): number {
     try {
       if (!t) {
@@ -61,7 +59,7 @@ export class TriangleCalculator {
     }
   }
 
-  // === Проверка: является ли треугольником ===
+  // Проверка: является ли треугольником 
   static isValidTriangle(t: Triangle): boolean {
     try {
       if (!t) {
@@ -77,7 +75,7 @@ export class TriangleCalculator {
     }
   }
 
-  // === Равнобедренный ===
+  // Равнобедренный 
   static isIsosceles(t: Triangle): boolean {
     try {
       if (!t) {
@@ -103,7 +101,7 @@ export class TriangleCalculator {
     }
   }
 
-  // === Равносторонний ===
+  //  Равносторонний 
   static isEquilateral(t: Triangle): boolean {
     try {
       if (!t) {
@@ -128,7 +126,7 @@ export class TriangleCalculator {
     }
   }
 
-  // === Прямоугольный ===
+  // Прямоугольный
   static isRight(t: Triangle): boolean {
     try {
       if (!t) {
@@ -152,7 +150,7 @@ export class TriangleCalculator {
     }
   }
 
-  // === Остроугольный ===
+  // Остроугольный 
   static isAcute(t: Triangle): boolean {
     try {
       if (!t) {
@@ -176,7 +174,7 @@ export class TriangleCalculator {
     }
   }
 
-  // === Тупоугольный ===
+  //Тупоугольный 
   static isObtuse(t: Triangle): boolean {
     try {
       if (!t) {

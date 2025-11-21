@@ -5,8 +5,6 @@ import { CalculationError } from "../exceptions/CalculationError";
 
 const EPS = 1e-9;
 
-// ======== Вспомогательные функции ========
-
 function toVec(p: Point) {
   return { x: p.x, y: p.y, z: p.z };
 }
@@ -34,8 +32,6 @@ function length(a: any) {
 function triangleArea(a: any, b: any, c: any): number {
   return 0.5 * length(cross(sub(b, a), sub(c, a)));
 }
-
-// ======== Класс-калькулятор =========
 
 export class TetrahedronCalculator {
 

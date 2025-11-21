@@ -14,7 +14,6 @@ describe("Shape entity", () => {
     // @ts-expect-error — это проверка TypeScript времени компиляции
     s.id = "new";
 
-    // В рантайме JS присвоение всё равно произойдёт — это норма.
     expect(s.id).toBe("new");
   });
 });
