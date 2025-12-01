@@ -3,40 +3,41 @@ import { TriangleCalculator } from "./services/TriangleCalculator";
 import { TetrahedronCalculator } from "./services/TetrahedronCalculator";
 
 console.log("TRIANGLES:");
-const triangles = FileReader.readTriangles("data/triangles.txt");
+
+const reader = new FileReader();
+
+// создаём экземпляры калькуляторов
+const triCalc = new TriangleCalculator();
+const tetCalc = new TetrahedronCalculator();
+
+const triangles = reader.readTriangles("data/triangles.txt");
+
 for (const t of triangles) {
-  console.log(t.id, "Площадь треугольника:", TriangleCalculator.area(t));
-  console.log(t.id, "Периметр:", TriangleCalculator.perimeter(t));
-  console.log(t.id, "Является ли треугольник равнобедренным:", TriangleCalculator.isIsosceles(t));
-  console.log(t.id, "Является ли треугольник равносторонним:", TriangleCalculator.isEquilateral(t));
-  console.log(t.id, "Является ли треугольник прямоугольным:", TriangleCalculator.isRight(t));
-  console.log(t.id, "Остроугольный:", TriangleCalculator.isAcute(t));
-  console.log(t.id, "Тупоугольный:", TriangleCalculator.isObtuse(t));
-  console.log(t.id, "Корректный:", TriangleCalculator.isValidTriangle(t));
+  console.log(t.id, "Площадь:", triCalc.area(t));
+  console.log(t.id, "Периметр:", triCalc.perimeter(t));
+  console.log(t.id, "Равнобедренный:", triCalc.isIsosceles(t));
+  console.log(t.id, "Равносторонний:", triCalc.isEquilateral(t));
+  console.log(t.id, "Прямоугольный:", triCalc.isRight(t));
+  console.log(t.id, "Остроугольный:", triCalc.isAcute(t));
+  console.log(t.id, "Тупоугольный:", triCalc.isObtuse(t));
+  console.log(t.id, "Корректный:", triCalc.isValidTriangle(t));
 }
 
 console.log("TETRAHEDRONS:");
 
-const tetrahedrons = FileReader.readTetrahedrons("data/tetrahedrons.txt");
+const tetrahedrons = reader.readTetrahedrons("data/tetrahedrons.txt");
 
 for (const t of tetrahedrons) {
-  console.log(t.id, "Корректный тетраэдр:", TetrahedronCalculator.isValid(t));
-  console.log(t.id, "Объём:", TetrahedronCalculator.volume(t));
-  console.log(t.id, "Площадь поверхности:", TetrahedronCalculator.surfaceArea(t));
-  
-  const planes = TetrahedronCalculator.baseLiesOnCoordinatePlane(t);
-  console.log(t.id, "Основание на плоскости XY:", planes.XY);
-  console.log(t.id, "Основание на плоскости YZ:", planes.YZ);
-  console.log(t.id, "Основание на плоскости XZ:", planes.XZ);
+  console.log(t.id, "Корректный:", tetCalc.isValid(t));
+  console.log(t.id, "Объём:", tetCalc.volume(t));
+  console.log(t.id, "Площадь поверхности:", tetCalc.surfaceArea(t));
 
-  const ratioXY = TetrahedronCalculator.volumeRatio(t, "XY");
-  console.log(t.id, "Соотношение объёмов при рассечении плоскостью XY:", ratioXY);
+  const planes = tetCalc.baseLiesOnCoordinatePlane(t);
+  console.log(t.id, "На XY:", planes.XY);
+  console.log(t.id, "На YZ:", planes.YZ);
+  console.log(t.id, "На XZ:", planes.XZ);
 
-  const ratioYZ = TetrahedronCalculator.volumeRatio(t, "YZ");
-  console.log(t.id, "Соотношение объёмов при рассечении плоскостью YZ:", ratioYZ);
-
-  const ratioXZ = TetrahedronCalculator.volumeRatio(t, "XZ");
-  console.log(t.id, "Соотношение объёмов при рассечении плоскостью XZ:", ratioXZ);
+  console.log(t.id, "Ratio XY:", tetCalc.volumeRatio(t, "XY"));
+  console.log(t.id, "Ratio YZ:", tetCalc.volumeRatio(t, "YZ"));
+  console.log(t.id, "Ratio XZ:", tetCalc.volumeRatio(t, "XZ"));
 }
-
-

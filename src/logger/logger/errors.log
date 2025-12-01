@@ -2,3 +2,7 @@
 {"level":40,"time":1763709774845,"pid":9936,"hostname":"Lana","row":"1 1 2 2 3 3","err":"Triangle: точки лежат на одной прямой","msg":"Triangle: skipping row"}
 {"level":50,"time":1763709774858,"pid":9936,"hostname":"Lana","a":{"x":0,"y":0,"z":0},"b":{"x":1,"y":0,"z":0},"c":{"x":2,"y":0,"z":0},"d":{"x":3,"y":0,"z":0},"msg":"Tetra: объём равен нулю"}
 {"level":40,"time":1763709774858,"pid":9936,"hostname":"Lana","row":"0 0 0 1 0 0 2 0 0 3 0 0","err":"Tetra: точки лежат в одной плоскости","msg":"Tetra: skipping row"}
+{"level":50,"time":1764584153700,"pid":23584,"hostname":"Lana","a":{"x":1,"y":1,"z":0},"b":{"x":2,"y":2,"z":0},"c":{"x":3,"y":3,"z":0},"msg":"Triangle: точки коллинеарны"}
+{"level":40,"time":1764584153704,"pid":23584,"hostname":"Lana","row":"1 1 2 2 3 3","err":"Triangle: точки лежат на одной прямой","msg":"Triangle: skipping row"}
+{"level":50,"time":1764584153762,"pid":23584,"hostname":"Lana","a":{"x":0,"y":0,"z":0},"b":{"x":1,"y":0,"z":0},"c":{"x":2,"y":0,"z":0},"d":{"x":3,"y":0,"z":0},"msg":"Tetra: объём равен нулю"}
+{"level":40,"time":1764584153762,"pid":23584,"hostname":"Lana","row":"0 0 0 1 0 0 2 0 0 3 0 0","err":"Tetra: точки лежат в одной плоскости","msg":"Tetra: skipping row"}

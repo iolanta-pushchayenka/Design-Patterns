@@ -7,10 +7,10 @@ const isTest = process.env.NODE_ENV === "test";
 let logger: pino.Logger;
 
 if (isTest) {
-  //  В тестах — отключаем логирование полностью
+
   logger = pino({ level: "silent" });
 } else {
-  //  Рабочий логгер — пишет в файл и консоль
+
   const logDir = path.resolve(__dirname, "logger");
   const logPath = path.join(logDir, "errors.log");
 
