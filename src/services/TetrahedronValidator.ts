@@ -8,12 +8,12 @@ export const TETRA_ROW_PATTERN =
 export const TETRA_COORD_COUNT = 12;
 
 export class TetrahedronValidator {
-  
+
   parseRow(row: string): number[] {
     try {
       const clean = row.trim();
 
-      // Недопустимые символы
+      
       if (!TETRA_ROW_PATTERN.test(clean)) {
         logger.error({ row }, "Tetra: строка содержит недопустимые символы");
         throw new InvalidDataError("Tetra: строка содержит неверные символы");
@@ -21,19 +21,18 @@ export class TetrahedronValidator {
 
       const numbers = clean.split(/\s+/).map(v => Number(v));
 
-      // NaN после парсинга — ошибка
+      
       if (numbers.some(n => Number.isNaN(n))) {
         logger.error({ row }, "Tetra: получены NaN");
         throw new InvalidDataError("Tetra: найдены нечисловые значения");
       }
 
-      // Меньше 12 — дополняем значениями 1 (требование задания)
+      
       const result: number[] = [...numbers];
       while (result.length < TETRA_COORD_COUNT) {
         result.push(1);
       }
 
-      // Больше 12 — ошибка
       if (result.length > TETRA_COORD_COUNT) {
         logger.error({ row }, "Tetra: слишком много чисел");
         throw new InvalidDataError("Tetra: превышено количество координат");
@@ -50,10 +49,10 @@ export class TetrahedronValidator {
     }
   }
 
-  
-   buildPoints(nums: number[]): Point[] {
+
+  buildPoints(nums: number[]): Point[] {
     try {
-     
+
       if (nums.length !== TETRA_COORD_COUNT) {
         logger.error({ nums }, "Tetra: неверное количество координат");
         throw new InvalidDataError(
@@ -73,7 +72,7 @@ export class TetrahedronValidator {
     }
   }
 
-  
+
   validatePoints(points: Point[]): void {
     if (points.length !== 4) {
       throw new InvalidDataError("Tetra: требуется 4 точки");
@@ -83,7 +82,7 @@ export class TetrahedronValidator {
     this.ensureNonZeroVolume(points);
   }
 
- 
+
   private ensureNoDuplicatePoints(points: Point[]): void {
     const unique = new Set(points.map(p => `${p.x}_${p.y}_${p.z}`));
 

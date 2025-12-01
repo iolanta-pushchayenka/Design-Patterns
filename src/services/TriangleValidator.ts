@@ -1,4 +1,3 @@
-// src/validators/TriangleValidator.ts
 import { Point } from "../entities/Point";
 import { InvalidDataError } from "../exceptions/InvalidDataError";
 import { logger } from "../logger/logger";
@@ -26,13 +25,12 @@ export class TriangleValidator {
         throw new InvalidDataError("Triangle: строка содержит нечисловые значения");
       }
 
-      // дополняем недостающее до 6 чисел значением 1
       const result: number[] = [...numbers];
       while (result.length < TRIANGLE_COORD_COUNT) {
         result.push(1);
       }
 
-      // если чисел больше 6 — нельзя
+      
       if (result.length > TRIANGLE_COORD_COUNT) {
         logger.error({ row }, "Triangle: слишком много значений");
         throw new InvalidDataError("Triangle: превышено количество координат");
@@ -40,7 +38,7 @@ export class TriangleValidator {
 
       return result;
     } catch (err: any) {
-      // не допускаем выбрасывания стандартных ошибок
+      
       if (err instanceof InvalidDataError) {
         throw err;
       }
@@ -50,7 +48,7 @@ export class TriangleValidator {
     }
   }
 
-  
+
   buildPoints(nums: number[]): Point[] {
     try {
       return [
@@ -81,7 +79,7 @@ export class TriangleValidator {
       throw new InvalidDataError("Triangle: две точки совпадают");
     }
   }
-  
+
   private ensureNotCollinear(a: Point, b: Point, c: Point): void {
     const area =
       Math.abs(

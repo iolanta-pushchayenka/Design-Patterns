@@ -6,7 +6,6 @@ console.log("TRIANGLES:");
 
 const reader = new FileReader();
 
-// создаём экземпляры калькуляторов
 const triCalc = new TriangleCalculator();
 const tetCalc = new TetrahedronCalculator();
 
