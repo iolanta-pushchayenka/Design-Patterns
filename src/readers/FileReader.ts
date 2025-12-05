@@ -1,10 +1,17 @@
 import fs from "fs";
 import pathModule from "path";
+
 import { TriangleFactory } from "../factories/TriangleFactory";
 import { TetrahedronFactory } from "../factories/TetrahedronFactory";
+
 import { TriangleValidator } from "../services/TriangleValidator";
 import { TetrahedronValidator } from "../services/TetrahedronValidator";
+
 import { InvalidDataError } from "../exceptions/InvalidDataError";
+
+import { Warehouse } from "../warehouse/Warehouse";
+import { triangleRepository, tetraRepository } from "../mainRepositories";
+
 import { logger } from "../logger/logger";
 
 const BASE_DIR = pathModule.resolve("data");
@@ -12,45 +19,30 @@ const BASE_DIR = pathModule.resolve("data");
 export class FileReader {
 
   private safeResolve(userPath: string): string {
-    try {
-      const resolved = pathModule.resolve(userPath);
-
-      if (!resolved.startsWith(BASE_DIR)) {
-        throw new InvalidDataError(
-          `Forbidden path: file must be inside "${BASE_DIR}", got "${userPath}"`
-        );
-      }
-
-      return resolved;
-
-    } catch (err: any) {
-      logger.error({ userPath, err }, "safeResolve failed");
-
-      if (err instanceof InvalidDataError) throw err;
-      throw new InvalidDataError("Failed to resolve file path");
+    const resolved = pathModule.resolve(userPath);
+    if (!resolved.startsWith(BASE_DIR)) {
+      throw new InvalidDataError(
+        `Forbidden path: file must be inside "${BASE_DIR}", got "${userPath}"`
+      );
     }
+    return resolved;
   }
 
-  // TRIANGLES 
+  // -----------------------------------------------------------
+  // TRIANGLES
+  // -----------------------------------------------------------
 
   readTriangles(path: string) {
-    const result: any[] = [];
     const validator = new TriangleValidator();
-    const triangleFactory = new TriangleFactory();
+    const factory = new TriangleFactory();
+
+    const warehouse = Warehouse.getInstance();
+
     let id = 1;
 
     try {
       const safePath = this.safeResolve(path);
-
-      let raw: string;
-      try {
-        raw = fs.readFileSync(safePath, "utf8");
-      } catch (fsErr: any) {
-        throw new InvalidDataError(
-          `Cannot read triangle file "${path}": ${fsErr.message}`
-        );
-      }
-
+      const raw = fs.readFileSync(safePath, "utf8");
       const lines = raw.split("\n");
 
       for (const rawLine of lines) {
@@ -62,48 +54,43 @@ export class FileReader {
           const points = validator.buildPoints(nums);
           validator.validatePoints(points);
 
-          const triangle = triangleFactory.create(`T${id}`, nums);
-          result.push(triangle);
+          const triangle = factory.create(`T${id}`, nums);
           id++;
+
+          triangleRepository.add(triangle);
+          warehouse.register(triangle);
 
         } catch (err: any) {
           logger.warn({ row, err: err.message }, "Triangle: skipping row");
-          continue;
         }
       }
 
     } catch (err: any) {
       logger.error({ path, err }, "readTriangles failed");
-
-      if (err instanceof InvalidDataError) throw err;
-      throw new InvalidDataError(
-        `Unexpected error reading triangles from "${path}"`
-      );
+      throw err instanceof InvalidDataError
+        ? err
+        : new InvalidDataError(`Failed to read triangles from "${path}"`);
     }
 
-    return result;
+    // ✔ добавили возврат массива
+    return triangleRepository.getAll();
   }
 
-  //  TETRAHEDRONS 
+  // -----------------------------------------------------------
+  // TETRAHEDRONS
+  // -----------------------------------------------------------
 
   readTetrahedrons(path: string) {
-    const result: any[] = [];
     const validator = new TetrahedronValidator();
-    const tetraFactory = new TetrahedronFactory();
+    const factory = new TetrahedronFactory();
+
+    const warehouse = Warehouse.getInstance();
+
     let id = 1;
 
     try {
       const safePath = this.safeResolve(path);
-
-      let raw: string;
-      try {
-        raw = fs.readFileSync(safePath, "utf8");
-      } catch (fsErr: any) {
-        throw new InvalidDataError(
-          `Cannot read tetrahedron file "${path}": ${fsErr.message}`
-        );
-      }
-
+      const raw = fs.readFileSync(safePath, "utf8");
       const lines = raw.split("\n");
 
       for (const rawLine of lines) {
@@ -115,25 +102,25 @@ export class FileReader {
           const points = validator.buildPoints(nums);
           validator.validatePoints(points);
 
-          const tetra = tetraFactory.create(`S${id}`, nums);
-          result.push(tetra);
+          const tetra = factory.create(`S${id}`, nums);
           id++;
+
+          tetraRepository.add(tetra);
+          warehouse.register(tetra);
 
         } catch (err: any) {
           logger.warn({ row, err: err.message }, "Tetra: skipping row");
-          continue;
         }
       }
 
     } catch (err: any) {
       logger.error({ path, err }, "readTetrahedrons failed");
-
-      if (err instanceof InvalidDataError) throw err;
-      throw new InvalidDataError(
-        `Unexpected error reading tetrahedrons from "${path}"`
-      );
+      throw err instanceof InvalidDataError
+        ? err
+        : new InvalidDataError(`Failed to read tetrahedrons from "${path}"`);
     }
 
-    return result;
+    // ✔ добавили возврат массива
+    return tetraRepository.getAll();
   }
-}
+}      

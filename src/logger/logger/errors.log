@@ -6,3 +6,55 @@
 {"level":40,"time":1764584153704,"pid":23584,"hostname":"Lana","row":"1 1 2 2 3 3","err":"Triangle: точки лежат на одной прямой","msg":"Triangle: skipping row"}
 {"level":50,"time":1764584153762,"pid":23584,"hostname":"Lana","a":{"x":0,"y":0,"z":0},"b":{"x":1,"y":0,"z":0},"c":{"x":2,"y":0,"z":0},"d":{"x":3,"y":0,"z":0},"msg":"Tetra: объём равен нулю"}
 {"level":40,"time":1764584153762,"pid":23584,"hostname":"Lana","row":"0 0 0 1 0 0 2 0 0 3 0 0","err":"Tetra: точки лежат в одной плоскости","msg":"Tetra: skipping row"}
+{"level":50,"time":1764609236699,"pid":33648,"hostname":"Lana","a":{"x":1,"y":1,"z":0},"b":{"x":2,"y":2,"z":0},"c":{"x":3,"y":3,"z":0},"msg":"Triangle: точки коллинеарны"}
+{"level":40,"time":1764609236700,"pid":33648,"hostname":"Lana","row":"1 1 2 2 3 3","err":"Triangle: точки лежат на одной прямой","msg":"Triangle: skipping row"}
+{"level":50,"time":1764609236737,"pid":33648,"hostname":"Lana","a":{"x":0,"y":0,"z":0},"b":{"x":1,"y":0,"z":0},"c":{"x":2,"y":0,"z":0},"d":{"x":3,"y":0,"z":0},"msg":"Tetra: объём равен нулю"}
+{"level":40,"time":1764609236737,"pid":33648,"hostname":"Lana","row":"0 0 0 1 0 0 2 0 0 3 0 0","err":"Tetra: точки лежат в одной плоскости","msg":"Tetra: skipping row"}
+{"level":50,"time":1764609481668,"pid":19096,"hostname":"Lana","a":{"x":1,"y":1,"z":0},"b":{"x":2,"y":2,"z":0},"c":{"x":3,"y":3,"z":0},"msg":"Triangle: точки коллинеарны"}
+{"level":40,"time":1764609481669,"pid":19096,"hostname":"Lana","row":"1 1 2 2 3 3","err":"Triangle: точки лежат на одной прямой","msg":"Triangle: skipping row"}
+{"level":50,"time":1764609481673,"pid":19096,"hostname":"Lana","a":{"x":0,"y":0,"z":0},"b":{"x":1,"y":0,"z":0},"c":{"x":2,"y":0,"z":0},"d":{"x":3,"y":0,"z":0},"msg":"Tetra: объём равен нулю"}
+{"level":40,"time":1764609481673,"pid":19096,"hostname":"Lana","row":"0 0 0 1 0 0 2 0 0 3 0 0","err":"Tetra: точки лежат в одной плоскости","msg":"Tetra: skipping row"}
+{"level":50,"time":1764611245617,"pid":5308,"hostname":"Lana","a":{"x":1,"y":1,"z":0},"b":{"x":2,"y":2,"z":0},"c":{"x":3,"y":3,"z":0},"msg":"Triangle: точки коллинеарны"}
+{"level":40,"time":1764611245624,"pid":5308,"hostname":"Lana","row":"1 1 2 2 3 3","err":"Triangle: точки лежат на одной прямой","msg":"Triangle: skipping row"}
+{"level":50,"time":1764611245641,"pid":5308,"hostname":"Lana","a":{"x":0,"y":0,"z":0},"b":{"x":1,"y":0,"z":0},"c":{"x":2,"y":0,"z":0},"d":{"x":3,"y":0,"z":0},"msg":"Tetra: объём равен нулю"}
+{"level":40,"time":1764611245641,"pid":5308,"hostname":"Lana","row":"0 0 0 1 0 0 2 0 0 3 0 0","err":"Tetra: точки лежат в одной плоскости","msg":"Tetra: skipping row"}
+{"level":50,"time":1764611580449,"pid":37496,"hostname":"Lana","a":{"x":1,"y":1,"z":0},"b":{"x":2,"y":2,"z":0},"c":{"x":3,"y":3,"z":0},"msg":"Triangle: точки коллинеарны"}
+{"level":40,"time":1764611580450,"pid":37496,"hostname":"Lana","row":"1 1 2 2 3 3","err":"Triangle: точки лежат на одной прямой","msg":"Triangle: skipping row"}
+{"level":50,"time":1764611580454,"pid":37496,"hostname":"Lana","a":{"x":0,"y":0,"z":0},"b":{"x":1,"y":0,"z":0},"c":{"x":2,"y":0,"z":0},"d":{"x":3,"y":0,"z":0},"msg":"Tetra: объём равен нулю"}
+{"level":40,"time":1764611580455,"pid":37496,"hostname":"Lana","row":"0 0 0 1 0 0 2 0 0 3 0 0","err":"Tetra: точки лежат в одной плоскости","msg":"Tetra: skipping row"}
+{"level":50,"time":1764658866710,"pid":42296,"hostname":"Lana","a":{"x":1,"y":1,"z":0},"b":{"x":2,"y":2,"z":0},"c":{"x":3,"y":3,"z":0},"msg":"Triangle: точки коллинеарны"}
+{"level":40,"time":1764658866711,"pid":42296,"hostname":"Lana","row":"1 1 2 2 3 3","err":"Triangle: точки лежат на одной прямой","msg":"Triangle: skipping row"}
+{"level":50,"time":1764658866752,"pid":42296,"hostname":"Lana","a":{"x":0,"y":0,"z":0},"b":{"x":1,"y":0,"z":0},"c":{"x":2,"y":0,"z":0},"d":{"x":3,"y":0,"z":0},"msg":"Tetra: объём равен нулю"}
+{"level":40,"time":1764658866752,"pid":42296,"hostname":"Lana","row":"0 0 0 1 0 0 2 0 0 3 0 0","err":"Tetra: точки лежат в одной плоскости","msg":"Tetra: skipping row"}
+{"level":50,"time":1764662935569,"pid":34340,"hostname":"Lana","a":{"x":1,"y":1,"z":0},"b":{"x":2,"y":2,"z":0},"c":{"x":3,"y":3,"z":0},"msg":"Triangle: точки коллинеарны"}
+{"level":40,"time":1764662935570,"pid":34340,"hostname":"Lana","row":"1 1 2 2 3 3","err":"Triangle: точки лежат на одной прямой","msg":"Triangle: skipping row"}
+{"level":50,"time":1764662935576,"pid":34340,"hostname":"Lana","a":{"x":0,"y":0,"z":0},"b":{"x":1,"y":0,"z":0},"c":{"x":2,"y":0,"z":0},"d":{"x":3,"y":0,"z":0},"msg":"Tetra: объём равен нулю"}
+{"level":40,"time":1764662935577,"pid":34340,"hostname":"Lana","row":"0 0 0 1 0 0 2 0 0 3 0 0","err":"Tetra: точки лежат в одной плоскости","msg":"Tetra: skipping row"}
+{"level":50,"time":1764663065460,"pid":31400,"hostname":"Lana","a":{"x":1,"y":1,"z":0},"b":{"x":2,"y":2,"z":0},"c":{"x":3,"y":3,"z":0},"msg":"Triangle: точки коллинеарны"}
+{"level":40,"time":1764663065462,"pid":31400,"hostname":"Lana","row":"1 1 2 2 3 3","err":"Triangle: точки лежат на одной прямой","msg":"Triangle: skipping row"}
+{"level":50,"time":1764663065468,"pid":31400,"hostname":"Lana","a":{"x":0,"y":0,"z":0},"b":{"x":1,"y":0,"z":0},"c":{"x":2,"y":0,"z":0},"d":{"x":3,"y":0,"z":0},"msg":"Tetra: объём равен нулю"}
+{"level":40,"time":1764663065468,"pid":31400,"hostname":"Lana","row":"0 0 0 1 0 0 2 0 0 3 0 0","err":"Tetra: точки лежат в одной плоскости","msg":"Tetra: skipping row"}
+{"level":50,"time":1764698993672,"pid":41136,"hostname":"Lana","a":{"x":1,"y":1,"z":0},"b":{"x":2,"y":2,"z":0},"c":{"x":3,"y":3,"z":0},"msg":"Triangle: точки коллинеарны"}
+{"level":40,"time":1764698993674,"pid":41136,"hostname":"Lana","row":"1 1 2 2 3 3","err":"Triangle: точки лежат на одной прямой","msg":"Triangle: skipping row"}
+{"level":50,"time":1764698993708,"pid":41136,"hostname":"Lana","a":{"x":0,"y":0,"z":0},"b":{"x":1,"y":0,"z":0},"c":{"x":2,"y":0,"z":0},"d":{"x":3,"y":0,"z":0},"msg":"Tetra: объём равен нулю"}
+{"level":40,"time":1764698993709,"pid":41136,"hostname":"Lana","row":"0 0 0 1 0 0 2 0 0 3 0 0","err":"Tetra: точки лежат в одной плоскости","msg":"Tetra: skipping row"}
+{"level":50,"time":1764701611925,"pid":42600,"hostname":"Lana","a":{"x":1,"y":1,"z":0},"b":{"x":2,"y":2,"z":0},"c":{"x":3,"y":3,"z":0},"msg":"Triangle: точки коллинеарны"}
+{"level":40,"time":1764701611926,"pid":42600,"hostname":"Lana","row":"1 1 2 2 3 3","err":"Triangle: точки лежат на одной прямой","msg":"Triangle: skipping row"}
+{"level":50,"time":1764701611931,"pid":42600,"hostname":"Lana","a":{"x":0,"y":0,"z":0},"b":{"x":1,"y":0,"z":0},"c":{"x":2,"y":0,"z":0},"d":{"x":3,"y":0,"z":0},"msg":"Tetra: объём равен нулю"}
+{"level":40,"time":1764701611931,"pid":42600,"hostname":"Lana","row":"0 0 0 1 0 0 2 0 0 3 0 0","err":"Tetra: точки лежат в одной плоскости","msg":"Tetra: skipping row"}
+{"level":50,"time":1764701918597,"pid":41728,"hostname":"Lana","a":{"x":1,"y":1,"z":0},"b":{"x":2,"y":2,"z":0},"c":{"x":3,"y":3,"z":0},"msg":"Triangle: точки коллинеарны"}
+{"level":40,"time":1764701918598,"pid":41728,"hostname":"Lana","row":"1 1 2 2 3 3","err":"Triangle: точки лежат на одной прямой","msg":"Triangle: skipping row"}
+{"level":50,"time":1764701918601,"pid":41728,"hostname":"Lana","a":{"x":0,"y":0,"z":0},"b":{"x":1,"y":0,"z":0},"c":{"x":2,"y":0,"z":0},"d":{"x":3,"y":0,"z":0},"msg":"Tetra: объём равен нулю"}
+{"level":40,"time":1764701918601,"pid":41728,"hostname":"Lana","row":"0 0 0 1 0 0 2 0 0 3 0 0","err":"Tetra: точки лежат в одной плоскости","msg":"Tetra: skipping row"}
+{"level":50,"time":1764702053794,"pid":30608,"hostname":"Lana","a":{"x":1,"y":1,"z":0},"b":{"x":2,"y":2,"z":0},"c":{"x":3,"y":3,"z":0},"msg":"Triangle: точки коллинеарны"}
+{"level":40,"time":1764702053795,"pid":30608,"hostname":"Lana","row":"1 1 2 2 3 3","err":"Triangle: точки лежат на одной прямой","msg":"Triangle: skipping row"}
+{"level":50,"time":1764702053799,"pid":30608,"hostname":"Lana","a":{"x":0,"y":0,"z":0},"b":{"x":1,"y":0,"z":0},"c":{"x":2,"y":0,"z":0},"d":{"x":3,"y":0,"z":0},"msg":"Tetra: объём равен нулю"}
+{"level":40,"time":1764702053799,"pid":30608,"hostname":"Lana","row":"0 0 0 1 0 0 2 0 0 3 0 0","err":"Tetra: точки лежат в одной плоскости","msg":"Tetra: skipping row"}
+{"level":50,"time":1764886669054,"pid":23128,"hostname":"Lana","a":{"x":1,"y":1,"z":0},"b":{"x":2,"y":2,"z":0},"c":{"x":3,"y":3,"z":0},"msg":"Triangle: точки коллинеарны"}
+{"level":40,"time":1764886669055,"pid":23128,"hostname":"Lana","row":"1 1 2 2 3 3","err":"Triangle: точки лежат на одной прямой","msg":"Triangle: skipping row"}
+{"level":50,"time":1764886669081,"pid":23128,"hostname":"Lana","a":{"x":0,"y":0,"z":0},"b":{"x":1,"y":0,"z":0},"c":{"x":2,"y":0,"z":0},"d":{"x":3,"y":0,"z":0},"msg":"Tetra: объём равен нулю"}
+{"level":40,"time":1764886669081,"pid":23128,"hostname":"Lana","row":"0 0 0 1 0 0 2 0 0 3 0 0","err":"Tetra: точки лежат в одной плоскости","msg":"Tetra: skipping row"}
+{"level":50,"time":1764886714121,"pid":5768,"hostname":"Lana","a":{"x":1,"y":1,"z":0},"b":{"x":2,"y":2,"z":0},"c":{"x":3,"y":3,"z":0},"msg":"Triangle: точки коллинеарны"}
+{"level":40,"time":1764886714122,"pid":5768,"hostname":"Lana","row":"1 1 2 2 3 3","err":"Triangle: точки лежат на одной прямой","msg":"Triangle: skipping row"}
+{"level":50,"time":1764886714125,"pid":5768,"hostname":"Lana","a":{"x":0,"y":0,"z":0},"b":{"x":1,"y":0,"z":0},"c":{"x":2,"y":0,"z":0},"d":{"x":3,"y":0,"z":0},"msg":"Tetra: объём равен нулю"}
+{"level":40,"time":1764886714126,"pid":5768,"hostname":"Lana","row":"0 0 0 1 0 0 2 0 0 3 0 0","err":"Tetra: точки лежат в одной плоскости","msg":"Tetra: skipping row"}

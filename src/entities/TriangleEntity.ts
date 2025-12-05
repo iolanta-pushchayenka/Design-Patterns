@@ -4,10 +4,27 @@ import { Point } from "./Point";
 export class Triangle extends Shape {
   constructor(
     id: string,
-    public readonly a: Point,
-    public readonly b: Point,
-    public readonly c: Point
+    name: string,
+    public a: Point,
+    public b: Point,
+    public c: Point
   ) {
-    super(id);
+    super(id, name);
+  }
+
+public setA(point: Point): void {
+    this.a = point;
+    this.notifyObservers();
+  }
+
+  public setB(point: Point): void {
+    this.b = point;
+    this.notifyObservers();
+  }
+
+  public setC(point: Point): void {
+    this.c = point;
+    this.notifyObservers();
   }
 }
+
